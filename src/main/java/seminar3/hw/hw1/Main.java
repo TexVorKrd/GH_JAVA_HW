@@ -19,7 +19,7 @@ public class Main {
                 .filter(a -> a.getItemQality() == 1 || a.getItemQality() == 2)
                 .filter(a -> a.getName().contains(matcher))
                 .map(a -> a.getPrice())
-                .max((a, b) -> (a < b) ? -1 : ((a == b) ? 0 : 1))
+                .max(Double::compareTo)
                 .orElse(0.0);
         System.out.println("Максимальная цена = " + max);
     }
