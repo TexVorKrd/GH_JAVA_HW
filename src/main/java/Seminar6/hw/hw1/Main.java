@@ -1,19 +1,28 @@
 package Seminar6.hw.hw1;
 
-import java.util.Map;
-
 public class Main {
     public static void main(String[] args) {
+        demo();
+    }
 
+    /**
+     * Демо работы фильтрации
+     */
+    public static void demo() {
+
+        NbFilters filters = new NbFilters();
         NoteList noteList = new NoteList();
-        for (Notebook nb:noteList.getNotebooks()) {
-            System.out.println(nb.toString());
-        }
-        System.out.println("---".repeat(10));
+        noteList.sout();
 
-    noteList.getNotebooks().stream()
-            .filter(a->NoteList.filterByBrend("ASUS").test(a.getBrend()))
-            .forEach(System.out::println);
+        filters.add(NbFilters.filterByBrend("Aser"));
+        filters.add(NbFilters.filterByColor("RED"));
+        filters.add(NbFilters.filterByPriceLess(70000));
+
+        System.out.println("-".repeat(30));
+
+        NoteList newList=new NoteList(filters.useFilter(noteList.getNotebooks()));
+        newList.sout();
+
     }
 
 }

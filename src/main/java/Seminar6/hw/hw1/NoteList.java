@@ -1,29 +1,33 @@
 package Seminar6.hw.hw1;
 
+import lombok.Data;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
+/**
+ * Список Ноутбуков, только автогенерация или списком
+ */
+@Data
 public class NoteList {
-    public List<Notebook> getNotebooks() {
-        return notebooks;
-    }
 
-    List<Notebook> notebooks =new ArrayList<>();
+    private List<Notebook> notebooks =new ArrayList<>();
 
     public NoteList() {
-        for (int i = 0; i <30 ; i++) {
+        for (int i = 0; i <60 ; i++) {
             notebooks.add(Notebook.randomCreate());
         }
     }
 
-    public static Predicate<Component> filterByBrend(String brendNama){
-        return component -> component.getPropety().get("brend").toLowerCase().equals(brendNama.toLowerCase());
+    public NoteList(List<Notebook> notebooks) {
+        this.notebooks = notebooks;
     }
 
-    public static Predicate<Component> filterByColor(String brendNama){
-        return component -> component.getPropety().get("color").toLowerCase().equals(brendNama.toLowerCase());
+    public void sout(){
+        for (Notebook nb:this.notebooks) {
+            System.out.println(nb.toString());
+        }
     }
-
 
 }

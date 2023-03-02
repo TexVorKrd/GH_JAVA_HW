@@ -7,23 +7,15 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 
-
-
+/**
+ * Клас компонентов для ноутбуков, компоненты строго типизированы
+ */
 public class Component implements Comparable<Component> {
-    public String getName() {
-        return name;
-    }
-
-    public String getTarnslate() {
-        return tarnslate;
-    }
-
-    public Map<String, String> getPropety() {
-        return propety;
-    }
 
     private String name;
+
     private String tarnslate;
+
     private Map<String,String> propety;
 
     private Component(String name, String tarnslate, Map<String, String> propety) {
@@ -60,6 +52,18 @@ public class Component implements Comparable<Component> {
         return new Component("Weight", "Вес", Map.of("weight", Double.toString(weight)));
     }
 
+
+    public String getName() {
+        return name;
+    }
+
+    public String getTarnslate() {
+        return tarnslate;
+    }
+
+    public Map<String, String> getPropety() {
+        return propety;
+    }
 
     @Override
     public String toString() {
