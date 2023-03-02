@@ -6,8 +6,22 @@ import lombok.Data;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Data
+
+
+
 public class Component implements Comparable<Component> {
+    public String getName() {
+        return name;
+    }
+
+    public String getTarnslate() {
+        return tarnslate;
+    }
+
+    public Map<String, String> getPropety() {
+        return propety;
+    }
+
     private String name;
     private String tarnslate;
     private Map<String,String> propety;
@@ -88,6 +102,7 @@ public class Component implements Comparable<Component> {
 
     @Override
     public int compareTo(Component o) {
-        return this.getName().compareTo(o.getName());
+
+        return this.name.compareTo(o.name);
     }
 }

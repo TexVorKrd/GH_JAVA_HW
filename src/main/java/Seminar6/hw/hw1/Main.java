@@ -5,8 +5,15 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
 
-        Notebook notebook = Notebook.randomCreate();
-        System.out.println(notebook.toString());
+        NoteList noteList = new NoteList();
+        for (Notebook nb:noteList.getNotebooks()) {
+            System.out.println(nb.toString());
+        }
+        System.out.println("---".repeat(10));
+
+    noteList.getNotebooks().stream()
+            .filter(a->NoteList.filterByBrend("ASUS").test(a.getBrend()))
+            .forEach(System.out::println);
     }
 
 }

@@ -1,9 +1,15 @@
 package Seminar6.hw.hw1;
 
 
+import lombok.Data;
+
 import java.util.Map;
 
 public class Notebook {
+    public Component getBrend() {
+        return brend;
+    }
+
     public static Notebook randomCreate(){
         return new Notebook();
     }
@@ -34,14 +40,11 @@ public class Notebook {
 
     @Override
     public String toString() {
-        System.out.println(brend);
-        System.out.println(color);
-        System.out.println(cpu);
-        System.out.println(hdd);
-        System.out.println(matrixSize);
-        System.out.println(weight);
-        System.out.println(price);
-
-        return "";
+        StringBuilder stringBuilder = new StringBuilder();
+        return stringBuilder
+                .append(this.brend.getPropety().get("brend"))
+                .append(" ")
+                .append(this.color.getPropety().get("color"))
+                .toString();
     }
 }
